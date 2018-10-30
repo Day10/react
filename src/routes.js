@@ -1,6 +1,11 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-import { App, Home, Editor, Chat, System } from './containers';
+import App from './containers/App';
+import Home from './containers/Home';
+import Editor from './containers/Editor';
+import Chat from './containers/Chat';
+import System from './containers/System';
+
 
 export default (
     <Route path='/' component={App}>

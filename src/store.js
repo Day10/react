@@ -3,7 +3,7 @@ import {
     combineReducers,
     applyMiddleware
 } from 'redux'
-import { colors } from './reducers'
+import unknow from './reducers'
 import stateData from './initialState'
 
 const logger = store => next => action => {
@@ -22,7 +22,7 @@ const saver = store => next => action => {
 }
 const storeFactory = (initialState = stateData) => 
     applyMiddleware(logger, saver)(createStore)(
-        combineReducers({colors }),
+        combineReducers({ unknow }),
         (localStorage['react-redux']) ? 
             JSON.parse(localStorage['react-redux']) :
             initialState

@@ -1,7 +1,20 @@
+const path = require('path')
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-module.exports = {
+function resolve(relatedPath) {
+    return path.join(__dirname, relatedPath)
+}
+
+const webpackConfigBase = {
+    entry: {
+        client: resolve('../src/client.js')
+    },
+    output: {
+        path: resolve('../dist'),
+        filename: '[name].[hash:4].js',
+        chunkFilename: 'chunks/[name].[hash:4].js',
+    },
     module: {
         rules: [
             {
@@ -37,3 +50,4 @@ module.exports = {
         })
     ]
 };
+module.exports = webpackConfigBase;
